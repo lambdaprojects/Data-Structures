@@ -48,7 +48,6 @@ class DoublyLinkedList:
         self.head = self.head.next
         self.head.prev = None
         return returnValue
-        pass
             
     """
     Wraps the given value in a ListNode and inserts it 
@@ -56,7 +55,14 @@ class DoublyLinkedList:
     the old tail node's next pointer accordingly.
     """
     def add_to_tail(self, value):
-        pass
+        # Create a new node with the value
+        # Point new node's next to None
+        # Point new node's prev to old tail
+        # Point old tail's next to new tail
+        newTailNode = ListNode(value, self.tail, None)
+        self.tail.next = newTailNode
+        self.tail = newTailNode
+
             
     """
     Removes the List's current tail node, making the 
@@ -64,7 +70,10 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_tail(self):
-        pass
+        # Set current tails prev node's next to None
+        # Set current tails prev to be tail node
+        self.tail.prev.next = None
+        self.tail = self.tail.prev
             
     """
     Removes the input node from its current spot in the 
